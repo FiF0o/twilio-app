@@ -11,7 +11,8 @@ build: deps-install
 	echo 'placeholder build task!'
 
 serve:
-	FLASK_APP=server.py flask run
+	# FLASK_APP=server.py flask run
+	flask run
 
 run:
 	python main.py

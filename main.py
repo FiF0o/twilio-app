@@ -1,5 +1,6 @@
 import os
 from twilio.rest import Client
+import json
 
 
 def load_env_vars():
@@ -13,8 +14,12 @@ def load_env_vars():
 def get_users():
     # class to add/remove users
     users = []
+    with open('config/users.json') as usersFile:
+        users = json.load(usersFile)
+
     myself = os.environ.get('TWILIO_NUMBER_TO')
-    users.append(myself)
+    # to remove later as this is
+    users.append({'phone_number': myself, 'name': 'Me'})
     return users
 
 
@@ -42,13 +47,13 @@ class MessageClient(object):
 
 class TwilioNotification(object):
     def __init__(self):
-        self.user_list = []
+        self.user_list = get_users()
         self.client = MessageClient()
         self.user_list = get_users()
     
     def message(self, message_to_send):
         for user in self.user_list:
-            self.client.send_msg(str(message_to_send), user)
+            self.client.send_msg(str(message_to_send), user['phone_number'])
 
 
 # init!

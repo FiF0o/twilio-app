@@ -1,19 +1,56 @@
 import os
 from twilio.rest import Client
 
-# Your Account SID from twilio.com/console
-account_sid = os.environ["TWILIO_ACCOUNT_SID"]
-# Your Auth Token from twilio.com/console
-auth_token  = os.environ["TWILIO_AUTH_TOKEN"]
-from_number = os.environ["TWILIO_NUMBER_FROM"]
-to_number = os.environ["TWILIO_NUMBER_TO"]
+
+def load_env_vars():
+    # Your Account SID from twilio.com/console
+    twilio_account_sid = os.environ["TWILIO_ACCOUNT_SID"]
+    # Your Auth Token from twilio.com/console
+    twilio_auth_token = os.environ["TWILIO_AUTH_TOKEN"]
+    twilio_from_number = os.environ["TWILIO_NUMBER_FROM"]
+    return (twilio_account_sid, twilio_auth_token, twilio_from_number)
+
+def get_users():
+    # class to add/remove users
+    users = []
+    myself = os.environ.get('TWILIO_NUMBER_TO')
+    users.append(myself)
+    return users
 
 
-client = Client(account_sid, auth_token)
+class MessageClient(object):
+    def __init__(self):
+        (twilio_account_sid,
+         twilio_auth_token,
+         twilio_from_number) = load_env_vars()
 
-message = client.messages.create(
-    to=to_number, 
-    from_=from_number,
-    body="Hello from Python!")
+        self.twilio_account_sid = twilio_account_sid
+        self.twilio_auth_token = twilio_auth_token
+        self.twilio_from_number = twilio_from_number
 
-print(message.sid)
+        self.twilio_client = Client(
+            twilio_account_sid, twilio_auth_token)
+           
+    def send_msg(self, body, to):
+        self.twilio_client.messages.create(
+            to=to,
+            from_=self.twilio_from_number,
+            body=body)
+
+        print 'msg: %s' % body
+
+
+class TwilioNotification(object):
+    def __init__(self):
+        self.user_list = []
+        self.client = MessageClient()
+        self.user_list = get_users()
+    
+    def message(self, message_to_send):
+        for user in self.user_list:
+            self.client.send_msg(str(message_to_send), user)
+
+
+# init!
+if __name__ == '__main__':
+    NOTIFICATIONS = TwilioNotification().message('Hello!')

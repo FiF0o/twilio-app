@@ -1,5 +1,5 @@
 deps-install:
-	echo 'placeholder to install pkgs'
+	pip install -r requirements.txt
 
 deps-upgrade:
 	pip freeze --local | \
@@ -7,12 +7,12 @@ deps-upgrade:
 	cut -d = -f 1  | \
 	xargs -n1 pip install -U
 
-build: deps-install
-	echo 'placeholder build task!'
+requirements:
+	pip freeze -r requirements.txt > requirements.txt
 
 serve:
 	# FLASK_APP=server.py flask run
 	flask run
 
-run:
-	python main.py
+run: deps-install
+	source .env && make serve

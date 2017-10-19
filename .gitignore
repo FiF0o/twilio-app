@@ -102,3 +102,5 @@ ENV/
 
 .history
 .vscode
+
+serverless/node_modules

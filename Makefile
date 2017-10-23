@@ -1,5 +1,5 @@
 deps-install:
-	pip install -r requirements.txt
+	source .venv/bin/activate && pip install -r requirements.txt
 
 deps-upgrade:
 	pip freeze --local | \

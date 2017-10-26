@@ -10,7 +10,7 @@ def hello():
 
 @app.route('/notify', methods=['GET', 'POST'])
 def send_notifs():
-    notif = TwilioNotification().message('notif is sent')
+    notif = TwilioNotification().message('Leak is detected')
     return str(notif)
 
 @app.route('/sms', methods=['GET', 'POST'])

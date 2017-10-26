@@ -58,4 +58,4 @@ class TwilioNotification(object):
 
 # init!
 if __name__ == '__main__':
-    NOTIFICATIONS = TwilioNotification().message('Hello!')
+    NOTIFICATIONS = TwilioNotification().message('Leak detected!')

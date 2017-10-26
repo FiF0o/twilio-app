@@ -11,8 +11,7 @@ requirements:
 	pip freeze -r requirements.txt > requirements.txt
 
 serve:
-	# FLASK_APP=server.py flask run
-	flask run
+	FLASK_APP=server.py flask run
 
 run: deps-install
 	source .env && make serve

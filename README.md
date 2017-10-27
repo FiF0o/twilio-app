@@ -30,3 +30,10 @@ If you don't want to host your webserver you can use ngrok locally to add your w
 ### Available commands
 
 Use the `Makefile` to `serve` and run your project.
+
+### Javascript and serverless endpoint
+`./serverless` directory holds a script using [webtask.io](https://webtask.io/) using Twilio API.<br>
+Alternatively, you can use [stdlib](https://stdlib.com/).<br><br>
+
+After `cd` the directory, you can install the deps `npm i`, and run the npm `deploy` task to update your script on webtask.io.<br>
+You will need to provide a `.secrets` file with your API variables: `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_NUMBER_FROM`, `TWILIO_NUMBER_TO` or source them in your environment.

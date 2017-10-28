@@ -37,3 +37,8 @@ Alternatively, you can use [stdlib](https://stdlib.com/).<br><br>
 
 After `cd` the directory, you can install the deps `npm i`, and run the npm `deploy` task to update your script on webtask.io.<br>
 You will need to provide a `.secrets` file with your API variables: `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_NUMBER_FROM`, `TWILIO_NUMBER_TO` or source them in your environment.
+
+## Examples of implementation
+-----------------------------
+
+* [Leak detector](https://github.com/slyg/leak-detector)<br>

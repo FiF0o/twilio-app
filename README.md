@@ -41,4 +41,6 @@ You will need to provide a `.secrets` file with your API variables: `TWILIO_ACCO
 ## Examples of implementation
 -----------------------------
 
-* [Leak detector](https://github.com/slyg/leak-detector)<br>
+* [Leak detector](https://github.com/slyg/leak-detector) - [@slyg](https://github.com/slyg) & [@fif0o](https://github.com/fif0o)<br>
+
+![leak detector](https://j.gifs.com/1rjLkG.gif)

@@ -10,7 +10,7 @@ install deps: `pip install -r requirements.txt`.
 
 ### Twilio configuration
 Add your own `account_sid`, `auth_token`, `from` (given by twilio when creating a phone number for your servie), `to` numbers to your environment after your registered for a Twilio account.<br>
-It can be found in your [console](https://www.twilio.com/console.<br>
+It can be found in your [console](https://www.twilio.com/console).<br>
 your `to` phone number (used to create a twilio account) must be [verified](https://www.twilio.com/console/phone-numbers/incoming).<br>
 
 ### Environment

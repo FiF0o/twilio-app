@@ -1,4 +1,7 @@
-# QUICK PYTHON APP USING API MESSAGING FROM TWILIO<br><br>
+# PYTHON APP USING API MESSAGING FROM TWILIO AND ARDUINO WATER SENSOR<br>
+A (Js) serverless implementation of the back-end is also available.
+<br>
+<br>
 
 
 ## Pre-requisites
